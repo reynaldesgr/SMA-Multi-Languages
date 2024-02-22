@@ -21,13 +21,13 @@ time python3 src/main.py >> $FILE
 echo "Done."
 
 echo "Run Ruby..."
-cd "../ruby"
+cd "../ruby/src"
 echo "Ruby" >> $FILE
 time ruby src/main.rb 
 echo "Done."
 
 echo "Run Rust..."
-cd "../rust"
+cd "../../rust"
 echo "Rust" >> $FILE
 cargo build --release
 time cargo run >> $FILE
