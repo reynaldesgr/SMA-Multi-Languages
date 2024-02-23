@@ -3,6 +3,7 @@ import java.util.List;
 
 public class Grid 
 {
+    public static MTRandom random = new MTRandom();
     public final static int GRID_WIDTH  = 300;
     public final static int GRID_HEIGHT = 300;
     public final        int NB_STATES   = 4;
@@ -21,6 +22,8 @@ public class Grid
                 zone.get(i).add(new ArrayList<>());
             }
         }
+
+        random.setSeed(5489);
     }
 
     public void initializeGrid(Population population) {
@@ -41,7 +44,7 @@ public class Grid
         clearGrid();
 
         for (Agent agent : gridPopulation.getAgents()) {
-            agent.move();
+            agent.move(Grid.random);
             zone.get(agent.getPosition().getX()).get(agent.getPosition().getY()).add(agent);
         }
     }

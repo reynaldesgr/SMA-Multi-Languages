@@ -1,10 +1,19 @@
 use std::collections::LinkedList;
 use std::convert::TryInto;
+
+use lazy_static::lazy_static;
+use std::sync::Mutex;
+
+use mersenne_twister_m::MT19937;
+use rand::{Rng, SeedableRng};
 use super::*;
 
 pub const NB_STATES: usize = 4;
 pub const GRID_HEIGHT: usize = 300;
 pub const GRID_WIDTH: usize = 300;
+lazy_static! {
+    pub static ref RANDOM: Mutex<MT19937> = Mutex::new(MT19937::new_with_seed(5489));
+}
 
 pub struct Grid
 {
@@ -12,7 +21,7 @@ pub struct Grid
     height: usize,
     states: [usize; NB_STATES],
     grid_population: Population,
-    zone: Vec<Vec<LinkedList<Agent>>>
+    zone: Vec<Vec<LinkedList<Agent>>>,
 }
 
 impl Grid 
@@ -35,7 +44,7 @@ impl Grid
             height: GRID_HEIGHT,
             states,
             grid_population,
-            zone,
+            zone
         }
     }
 
@@ -174,6 +183,7 @@ impl Grid
     pub fn get_height(&self) -> usize {
         self.height
     }
+
 
     pub fn get_state(&self, index: usize) -> Option<i32> {
         if index < NB_STATES {

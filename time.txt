@@ -1,13 +1,24 @@
 cpp
-real    14m38,266s
-user    14m37,497s
-sys     0m0,581s
+real    7m11.738s
+user    7m8.532s
+sys     0m3.191s
 
 java
-
+real    11m9.814s
+user    23m22.135s
+sys     0m10.305s
 
 python
+real    82m23.372s
+user    82m22.150s
+sys     0m1.150s
 
 ruby
+real    72m0.688s
+user    71m52.359s
+sys     0m7.941s
 
 rust
+real    23m35.738s
+user    23m31.640s
+sys     0m3.840s

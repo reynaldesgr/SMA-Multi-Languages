@@ -1,0 +1,24 @@
+cpp
+Average time: 607.82 sec
+Average CPU time: 607.44 sec
+Average memory usage: 549.26171875 KB
+
+java
+Average time: 651.97 sec
+Average CPU time: 1422.78 sec
+Average memory usage: 2091.8046875 KB
+
+python
+Average time: 5471.22 sec
+Average CPU time: 5470.40 sec
+Average memory usage: 1731.19140625 KB
+
+ruby 
+Average time: 3698.00 sec
+Average CPU time: 3697.55 sec
+Average memory usage: 2401.6875 KB
+
+rust
+Average time: 1285.72 sec
+Average CPU time: 1285.48 sec
+Average memory usage: 546.75 KB

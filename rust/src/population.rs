@@ -29,8 +29,8 @@ impl Population {
     
 
     pub fn initialize_population(&mut self) {
-        let mut rng = MT19937::new_with_seed(5489);
-        
+        let mut rng = RANDOM.lock().unwrap();
+
         for i in 0..NUM_AGENTS {
             let d_e = neg_exp(3.);
             let d_i = neg_exp(7.);

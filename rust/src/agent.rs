@@ -1,4 +1,6 @@
 use super::*;
+use mersenne_twister_m::MT19937;
+use rand::{Rng, SeedableRng};
 
 #[derive(Clone)]
 pub struct Agent {
@@ -72,13 +74,13 @@ impl Agent
     }
 
     pub fn move_agent(&mut self) {
-        let mut rng = rand::thread_rng();
+        let mut rng = RANDOM.lock().unwrap();
         let dist_x = Uniform::new(0, GRID_WIDTH as i32);
         let dist_y = Uniform::new(0, GRID_HEIGHT as i32);
 
         let new_pos = Position {
-            x: rng.sample(dist_x),
-            y: rng.sample(dist_y),
+            x: (rng.genrand() as usize % GRID_WIDTH) as i32,
+            y: (rng.genrand() as usize % GRID_HEIGHT) as i32
         };
 
         self.set_position(new_pos);

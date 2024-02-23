@@ -17,7 +17,7 @@ public class Main {
         FileWriter[] csvFiles = new FileWriter[NUM_SIMULATIONS];
 
         try {
-            File directory = new File("java/src/simulation");
+            File directory = new File("src/simulation");
             if (!directory.exists()) {
                 directory.mkdirs();
             }
@@ -28,7 +28,7 @@ public class Main {
                 grids[sim] = new Grid();
                 grids[sim].initializeGrid(populations[sim]);
 
-                String filename = "java/src/simulation/simulation_data" + (sim + 1) + ".csv";
+                String filename = "src/simulation/simulation_data" + (sim + 1) + ".csv";
                 csvFiles[sim] = new FileWriter(filename);
                 csvFiles[sim].write("day,susceptibleCount,exposedCount,infectedCount,recoveredCount\n");
             }

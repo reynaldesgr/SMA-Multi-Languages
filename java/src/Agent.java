@@ -65,8 +65,7 @@ public class Agent
         }
     }
 
-    public void move() {
-        Random random = new Random();
+    public void move(MTRandom random) {
         int newX = random.nextInt(Grid.GRID_WIDTH);
         int newY = random.nextInt(Grid.GRID_HEIGHT);
         Position newPos = new Position(newX, newY);

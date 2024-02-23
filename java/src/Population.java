@@ -5,19 +5,15 @@ import java.util.Random;
 public class Population {
     private final int NUM_AGENTS   = 20000; 
     private final int NUM_INFECTED = 20; 
-    private final int GRID_WIDTH   = 300; 
-    private final int GRID_HEIGHT  = 300; 
 
     private final List<Agent> agents = new ArrayList<>();
 
     public void initializePopulation() {
-        MTRandom random = new MTRandom();
-        random.setSeed(5489);
         
         for (int i = 0; i < NUM_AGENTS; i++) {
-            double dE = negExp(3, random);
-            double dI = negExp(7, random);
-            double dR = negExp(365, random);
+            double dE = negExp(3,   Grid.random);
+            double dI = negExp(7,   Grid.random);
+            double dR = negExp(365, Grid.random);
 
             State s;
             if (i < NUM_AGENTS - NUM_INFECTED) {
@@ -26,7 +22,7 @@ public class Population {
                 s = State.I; // Agent I
             }
 
-            Agent idv = new Agent(i, s, new Position(random.nextInt(GRID_WIDTH), random.nextInt(GRID_HEIGHT)), dE, dI, dR);
+            Agent idv = new Agent(i, s, new Position(Grid.random.nextInt(Grid.GRID_WIDTH), Grid.random.nextInt(Grid.GRID_HEIGHT)), dE, dI, dR);
             agents.add(idv);
         }
     }
