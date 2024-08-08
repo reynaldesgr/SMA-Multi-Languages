@@ -11,5 +11,5 @@ The languages studied include :
 * ``Java``
 * ``Rust``
 * ``Ruby``
-* 
+
 By comparing the implementations, developers and researchers can gain insights into the strengths and weaknesses of each language for developing MAS.
